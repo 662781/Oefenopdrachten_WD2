@@ -1,53 +1,42 @@
 <template>
   <div>
-    <!-- <table>
-      <tr>
-        <th>Name</th>
-        <td v-for="stock in stocks" :key="stock.name">{{ stock.name }}</td>
-      </tr>
-      <tr>
-        <th>Price</th>
-        <td v-for="stock in stocks" :key="stock.name">{{ stock.price }}</td>
-        <td :class="{ more: price > previousPrice, less: price < previousPrice,}"></td>
-      </tr>
-      <tr>
-        <th>Prev. Price</th>
-        <td v-for="stock in stocks" :key="stock.name">
-          {{ stock.previousPrice }}
-        </td>
-      </tr>
-      <tr>
-        <th>Currency</th>
-        <td v-for="stock in stocks" :key="stock.name">{{ stock.currency }}</td>
-      </tr>
-      <button @click="updateStocks()">Update</button>
-    </table> -->
-    <table>
-      <thead>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Prev. Price</th>
-      </thead>
-      <tbody v-for="stock in stocks" :key="stock.name">
-        <td>{{ stock.name }}</td>
-        <td
-          :class="{
-            less: stock.price < stock.previousPrice,
-            more: stock.price > stock.previousPrice,
-          }"
-        >
-          {{ stock.currency }} {{ stock.price }}
-        </td>
-        <td>{{ stock.previousPrice }}</td>
-      </tbody>
-      <button @click="updateStocks()">Update</button>
-    </table>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <div>
+      <h1>Today's Stock Market</h1>
+      <p>&nbsp;</p>
+      <div class="container">
+        <div class="row">
+          <!-- Individual stocks -->
+          <stock-item
+            v-for="stock in stocks"
+            :key="stock.name"
+            :name="stock.name"
+            :currency="stock.currency"
+            :price="stock.price"
+            :prevPrice="stock.previousPrice"
+          >
+          </stock-item>
+          <!-- End of individual stocks -->
+        </div>
+        <!-- <button @click="updateStocks()">Update</button> -->
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import StockItem from "./StockItem.vue";
 export default {
   name: "StockList",
+
+  components: {
+    StockItem,
+  },
 
   data() {
     return {
@@ -72,23 +61,24 @@ export default {
     },
   },
   mounted() {
-    this.updateStocks();
+    setInterval(() => {
+      this.updateStocks();
+    }, 1000);
   },
 };
 </script>
 
 <style>
-tr,
-th,
-td {
-  padding: 10px;
-}
-
 .more {
   color: green;
 }
 
 .less {
   color: red;
+}
+
+button {
+  width: 30%;
+  height: 10%;
 }
 </style>
