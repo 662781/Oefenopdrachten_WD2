@@ -20,5 +20,20 @@ npm run build
 npm run lint
 ```
 
+### Routing
+#### Install the library in your project by running:
+```
+npm install –save vue-router
+```
+#### In main.js, add:
+```
+import VueRouter from 'vue-router’
+```
+#### And then call:
+```
+Vue.use(VueRouter);
+```
+
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
