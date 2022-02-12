@@ -19,6 +19,7 @@
             :currency="stock.currency"
             :price="stock.price"
             :prevPrice="stock.previousPrice"
+            @buy="buyStock"
           >
           </stock-item>
           <!-- End of individual stocks -->
@@ -45,7 +46,8 @@ export default {
         { name: "Caterpillar", price: 146.49, previousPrice: 0, currency: "$" },
         { name: "AMD", price: 76.5, previousPrice: 0, currency: "$" },
         { name: "Gazprom", price: 4.583, previousPrice: 0, currency: "$" },
-      ]
+      ],
+      portfolio: []
     };
   },
   methods: {
@@ -57,6 +59,10 @@ export default {
           stock.price = 0;
         }
       });
+    },
+    buyStock(name, amount){
+      // alert("Do you really want to buy " + amount + "" + name + " stocks?");
+      // this.portfolio.push({name, amount})
     }
   },
   mounted() {

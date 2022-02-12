@@ -4,14 +4,15 @@
       <div class="card-body">
         <td>{{ name }}</td>
         <span
+
+        class="price"
           :class="{
             less: price < prevPrice,
             more: price > prevPrice,
           }"
-          >{{ currency }} {{ price.toFixed(2) }}</span
-        >
-        <input type="number" v-model="amount">
-        <button class="button is-primary" @click="$emit('buy', id)">
+          >{{ currency }} {{ price.toFixed(2) }}</span>
+        <input v-model.number="amount" type="number" min="1" value="1" class="amount-input">
+        <button class="button is-primary" @click="$emit('buy', name, amount)">Buy Stock</button>
       </div>
     </div>
   </div>
@@ -26,9 +27,17 @@ export default {
     price: Number,
     prevPrice: Number,
     currency: String,
-  },
+    amount: Number
+  }
 };
 </script>
 
 <style>
+.amount-input{
+  max-width: 10%;
+}
+
+.price{
+  padding-right: 160px;
+}
 </style>
