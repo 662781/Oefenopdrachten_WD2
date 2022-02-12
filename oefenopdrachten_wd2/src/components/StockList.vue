@@ -35,7 +35,7 @@ export default {
   name: "StockList",
 
   components: {
-    StockItem,
+    StockItem
   },
 
   data() {
@@ -45,8 +45,7 @@ export default {
         { name: "Caterpillar", price: 146.49, previousPrice: 0, currency: "$" },
         { name: "AMD", price: 76.5, previousPrice: 0, currency: "$" },
         { name: "Gazprom", price: 4.583, previousPrice: 0, currency: "$" },
-      ],
-      portfolio: [],
+      ]
     };
   },
   methods: {
@@ -58,13 +57,13 @@ export default {
           stock.price = 0;
         }
       });
-    },
+    }
   },
   mounted() {
     setInterval(() => {
       this.updateStocks();
     }, 1000);
-  },
+  }
 };
 </script>
 
