@@ -11,7 +11,7 @@
             more: price > prevPrice,
           }"
           >{{ currency }} {{ price.toFixed(2) }}</span>
-        <input v-model.number="amount" type="number" min="1" value="1" class="amount-input">
+        <input v-model.number="amount" type="number" min="1" class="amount-input">
         <button class="button is-primary" @click="$emit('buy', name, amount)">Buy Stock</button>
       </div>
     </div>
@@ -22,12 +22,18 @@
 export default {
   name: "StockItem",
 
+  data(){
+   return{
+     amount: 1
+   }
+  },
+
   props: {
     name: String,
     price: Number,
     prevPrice: Number,
     currency: String,
-    amount: Number
+    // amount: Number
   }
 };
 </script>

@@ -11,7 +11,6 @@
       <p>&nbsp;</p>
       <div class="container">
         <div class="row">
-          <!-- Individual stocks -->
           <stock-item
             v-for="stock in stocks"
             :key="stock.name"
@@ -22,7 +21,6 @@
             @buy="buyStock"
           >
           </stock-item>
-          <!-- End of individual stocks -->
         </div>
         <!-- <button @click="updateStocks()">Update</button> -->
       </div>
@@ -47,7 +45,7 @@ export default {
         { name: "AMD", price: 76.5, previousPrice: 0, currency: "$" },
         { name: "Gazprom", price: 4.583, previousPrice: 0, currency: "$" },
       ],
-      portfolio: []
+      portfolio: [],
     };
   },
   methods: {
@@ -61,8 +59,8 @@ export default {
       });
     },
     buyStock(name, amount){
-      // alert("Do you really want to buy " + amount + "" + name + " stocks?");
-      // this.portfolio.push({name, amount})
+      alert(name + " x" + amount + " bought!");
+      this.portfolio.push({name, amount})
     }
   },
   mounted() {
