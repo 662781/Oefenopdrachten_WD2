@@ -19,7 +19,7 @@ $result = Builder::create()
     ->margin(10)
     ->roundBlockSizeMode(new RoundBlockSizeModeMargin())
     // ->logoPath(__DIR__.'/assets/symfony.png')
-    ->labelText('Scan me!')
+    ->labelText('Scan me! (DNARR)')
     ->labelFont(new NotoSans(20))
     ->labelAlignment(new LabelAlignmentCenter())
     ->build();
