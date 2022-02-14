@@ -7,6 +7,19 @@ namespace Composer\Autoload;
 class ComposerStaticInita0af6a03a8085c4a8ea8274dbfa584ba
 {
     public static $prefixLengthsPsr4 = array (
+        'S' => 
+        array (
+            'Services\\' => 9,
+        ),
+        'R' => 
+        array (
+            'Routers\\' => 8,
+            'Repositories\\' => 13,
+        ),
+        'M' => 
+        array (
+            'Models\\' => 7,
+        ),
         'E' => 
         array (
             'Endroid\\QrCode\\' => 15,
@@ -15,6 +28,10 @@ class ComposerStaticInita0af6a03a8085c4a8ea8274dbfa584ba
         array (
             'DASPRiD\\Enum\\' => 13,
         ),
+        'C' => 
+        array (
+            'Controllers\\' => 12,
+        ),
         'B' => 
         array (
             'BaconQrCode\\' => 12,
@@ -22,6 +39,22 @@ class ComposerStaticInita0af6a03a8085c4a8ea8274dbfa584ba
     );
 
     public static $prefixDirsPsr4 = array (
+        'Services\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/services',
+        ),
+        'Routers\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/routers',
+        ),
+        'Repositories\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/repositories',
+        ),
+        'Models\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/models',
+        ),
         'Endroid\\QrCode\\' => 
         array (
             0 => __DIR__ . '/..' . '/endroid/qr-code/src',
@@ -29,6 +62,10 @@ class ComposerStaticInita0af6a03a8085c4a8ea8274dbfa584ba
         'DASPRiD\\Enum\\' => 
         array (
             0 => __DIR__ . '/..' . '/dasprid/enum/src',
+        ),
+        'Controllers\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controllers',
         ),
         'BaconQrCode\\' => 
         array (

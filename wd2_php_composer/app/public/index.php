@@ -1,5 +1,6 @@
 <?php
-require __DIR__ . '/../patternrouter.php';
+require __DIR__ . '/../vendor/autoload.php';
+use Routers\PatternRouter;
 
 $uri = trim($_SERVER['REQUEST_URI'], '/');
 

@@ -1,5 +1,8 @@
 <?php
 
+namespace Routers;
+use Exception;
+
 class PatternRouter {
 
     private function stripParameters($uri) {
@@ -26,7 +29,7 @@ class PatternRouter {
         $methodName = $explodedUri[1];
 
         try {
-            require __DIR__ . '/controllers/' . $controllerName . '.php';
+            $controllerName = "Controllers\\" . $controllerName;
             $controllerObj = new $controllerName();
             $controllerObj->$methodName();
         } catch (Exception $e) {

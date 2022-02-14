@@ -6,7 +6,12 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Services\\' => array($baseDir . '/services'),
+    'Routers\\' => array($baseDir . '/routers'),
+    'Repositories\\' => array($baseDir . '/repositories'),
+    'Models\\' => array($baseDir . '/models'),
     'Endroid\\QrCode\\' => array($vendorDir . '/endroid/qr-code/src'),
     'DASPRiD\\Enum\\' => array($vendorDir . '/dasprid/enum/src'),
+    'Controllers\\' => array($baseDir . '/controllers'),
     'BaconQrCode\\' => array($vendorDir . '/bacon/bacon-qr-code/src'),
 );
