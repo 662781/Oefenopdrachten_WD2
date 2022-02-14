@@ -1,9 +1,11 @@
-# Import Libraries Lesson 3
+# Commands
+
+## Import Libraries Lesson 3
 
 
-# QR Code Generation
+## QR Code Generation
 
-# Autoload Classes
+## Autoload Classes
 ``
 docker run --rm --interactive --tty --volume ${PWD}/app:/app composer dump-autoload
 ``
