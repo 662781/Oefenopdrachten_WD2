@@ -14,7 +14,12 @@ $router->setNamespace('Controllers');
 
 // routes for the articles endpoint
 $router->get('/products', 'ProductController@getAll');
+
+//(\d+) gives a variable
 $router->get('/products/(\d+)', 'ProductController@getOne');
+
+$router->post('/products', 'ProductController@create');
+
 $router->put('/products/(\d+)', 'ProductController@update');
 
 // Run it!

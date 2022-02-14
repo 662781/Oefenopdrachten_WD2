@@ -13,6 +13,16 @@ class ProductService {
     }
 
     public function getAll($offset = NULL, $limit = NULL) {
+
+        $offset = NULL;
+        $limit = NULL;
+        if (isset($_GET["offset"]) && is_numeric($_GET["offset"])) {
+            $offset = $_GET["offset"];
+        }
+        if (isset($_GET["limit"]) && is_numeric($_GET["limit"])) {
+            $limit = $_GET["limit"];
+        }
+
         return $this->repository->getAll($offset, $limit);
     }
 

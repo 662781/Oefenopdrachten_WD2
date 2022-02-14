@@ -4,7 +4,7 @@ namespace Controllers;
 class Controller {
 
     function respond($data) {
-        $this->respondWithCode(200, $data);
+       $this->respondWithCode(200, $data);
     }
 
     function respondWithError($httpcode, $message) {

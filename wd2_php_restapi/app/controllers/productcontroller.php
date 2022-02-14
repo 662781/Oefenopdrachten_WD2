@@ -17,23 +17,30 @@ class ProductController extends Controller
 
     public function getAll()
     {
-        // this code seems to have been lost
+        $productsJSON = $this->service->getAll();
+
+        $this->respond($productsJSON);
     }
 
     public function getOne($id)
     {
         $product = $this->service->getOne($id);
 
-        // we might need some kind of error checking that returns a 404 if the product is not found in the DB
+        if(!$product){
+            $this->respondWithError('404', "Product not found");
+        }
+        else{
+            $this->respond($product);
+        }
 
-        $this->respond($product);
     }
 
     public function create()
     {
         try {
-            $product = $this->createObjectFromPostedJson("Models\Product");
-            // something is missing. Shouldn't we update the product in the DB?
+            $product = $this->createObjectFromPostedJson("Models\\Product");
+
+            $this->service->insert($product);
 
         } catch (Exception $e) {
             $this->respondWithError(500, $e->getMessage());
@@ -44,6 +51,29 @@ class ProductController extends Controller
 
     public function update($id)
     {
-        // There is no code here
+        try {
+            $product = $this->createObjectFromPostedJson("Models\\Product");
+
+            $this->service->update($product, $id);
+
+        } catch (Exception $e) {
+            $this->respondWithError(500, $e->getMessage());
+        }
+
+        $this->respond($product);
     } 
+
+    // public function delete($id)
+    // {
+    //     try {
+    //         $product = $this->createObjectFromPostedJson("Models\\Product");
+
+    //         $this->service->delete($product, $id);
+
+    //     } catch (Exception $e) {
+    //         $this->respondWithError(500, $e->getMessage());
+    //     }
+
+    //     $this->respond($product);
+    // }
 }
