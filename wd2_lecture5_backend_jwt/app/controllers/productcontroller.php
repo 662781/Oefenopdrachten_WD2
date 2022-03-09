@@ -24,8 +24,6 @@ class ProductController extends Controller
             return;
         }
 
-
-
         $offset = NULL;
         $limit = NULL;
 
